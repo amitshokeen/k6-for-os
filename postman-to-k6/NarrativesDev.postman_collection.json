@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "8daf9cb2-cfbf-400e-b4cb-af955a02e9b1",
+		"name": "NarrativesDev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5313384"
+	},
+	"item": [
+		{
+			"name": "https://narratives-os.dev.ml-feapps.pulsarinternal.com/ml_narratives_context_bundles/_search/template",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "h$Y!*r?e5;VrrC]q",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "master",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"narratives-aggs-list\",\n  \"params\": {\n    \"query_string\": \"elon\",\n    \"agg_size\": 50,\n    \"from_date\": \"2022-11-10\",\n    \"to_date\": \"2022-11-30\",\n    \"size\": 3,\n    \"from\": 0,\n    \"sort_by_trend_score\": true\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://narratives-os.dev.ml-feapps.pulsarinternal.com/ml_narratives_context_bundles/_search/template",
+					"protocol": "https",
+					"host": [
+						"narratives-os",
+						"dev",
+						"ml-feapps",
+						"pulsarinternal",
+						"com"
+					],
+					"path": [
+						"ml_narratives_context_bundles",
+						"_search",
+						"template"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

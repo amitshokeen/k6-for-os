@@ -1,14 +1,13 @@
 import "./libs/shim/core.js";
 import URI from "./libs/urijs.js";
 import { check } from 'k6';
-//import { faker } from 'https://cdn.skypack.dev/@faker-js/faker';
-//import createFakeNameArray from './tests/test666.js'
-//import faker from 'https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js';
+import { configuration } from "./configuration.js";
 import { fakeQueryString, fakeFromDate, fakeToDate, fakeAgg_size } from "./fakeDataMaker.js"; 
+
 
 export let options = { 
   //maxRedirects: 4,
-   duration: '6s',
+   duration: '2s',
    vus: 3,
   // stages: [
   //   { duration: '10s', target: 10 },
@@ -23,19 +22,16 @@ postman[Symbol.for("initial")]({
 });
 
 export default function() {
-  console.log(`Random name: ${fakeQueryString()}`);
-  console.log(`Random agg_size: ${fakeAgg_size()}`);
+  // console.log(`Random name: ${fakeQueryString()}`);
+  // console.log(`Random agg_size: ${fakeAgg_size()}`);
+  // console.log('query is: ' + configuration().query);
   //console.log(faker.name.firstName());
   let response = postman[Request]({
-    name:
-      "https://narratives-os.dev.ml-feapps.pulsarinternal.com/ml_narratives_context_bundles/_search/template",
-    id: "968cafa0-0da3-4777-87e6-624b7b6201c6",
     headers: {
       'Content-Type': 'application/json'
     },
     method: "GET",
-    address:
-      "https://narratives-os.dev.ml-feapps.pulsarinternal.com/ml_narratives_context_bundles/_search/template",
+    address: configuration().base_url + configuration().query,
     data: JSON.stringify({
             "id": "narratives-aggs-list",
             "params": {
@@ -51,8 +47,8 @@ export default function() {
     }),
     auth(config, Var) {
       const address = new URI(config.address);
-      address.username("master");
-      address.password("h$Y!*r?e5;VrrC]q");
+      address.username(configuration().username);
+      address.password(configuration().password);
       config.address = address.toString();
       config.options.auth = "basic";
     }

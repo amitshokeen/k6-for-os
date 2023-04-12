@@ -17,9 +17,6 @@ export function fakeQueryString() {
                 while (random_word.indexOf(' ') >= 0) {
                     random_word = faker.random.word({ length: { min: 3 } })
                 }
-                if (random_word.includes("/")) {
-                    random_word = random_word.replace(/\//g, "");
-                }
                 final_query_string += (" " + random_word);
             }
         }
@@ -34,9 +31,6 @@ export function fakeQueryString() {
                 while (random_word.indexOf(' ') >= 0) {
                     random_word = faker.random.word({ length: { min: 3 } })
                 }
-                if (random_word.includes("/")) {
-                    random_word = random_word.replace(/\//g, "");
-                }
                 operator = operators[Math.floor(Math.random() * operators.length)];
                 final_query_string += (" " + operator + " " + random_word);
             }
@@ -48,6 +42,10 @@ export function fakeQueryString() {
             random_word = faker.random.word({ length: { min: 3 } })
         }
         final_query_string = random_word;
+    }
+
+    if (final_query_string.includes("/")) {
+        final_query_string = "\"" + final_query_string + "\"";
     }
 
     console.log("Generated query: " + final_query_string)

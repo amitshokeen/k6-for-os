@@ -5,7 +5,8 @@ k6.io based load/performance testing framework for OpenSearch
 1. Install k6 from https://k6.io/docs/get-started/installation/
 2. In the terminal, at the root of your project, run this command:<br>
     > k6 run --console-output "loadtest.log" -e AGG_SIZE=10 -e QUERY_LENGTH=2 -e QUERY_TYPE=Simple k6-script.js<br>
-    > AGG_SIZE = 10, 20, 50, or 100<br>
+    ### Explanation of the variables used
+    > AGG_SIZE can have any of the values 10, 20, 50, or 100<br>
     > QUERY_LENGTH = Number of words to generate<br>
     > QUERY_TYPE = Simple (no boolean operators), Complex (includes boolean operators)
 3. After the test is complete, you will see the "took" values in the loadtest.log file created at the root of the project.

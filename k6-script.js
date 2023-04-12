@@ -22,6 +22,7 @@ postman[Symbol.for("initial")]({
 });
 
 export default function() {
+  let aggSize = __ENV.AGG_SIZE;
   let response = postman[Request]({
     headers: {
       'Content-Type': 'application/json'
@@ -33,7 +34,7 @@ export default function() {
             "params": {
 
                 "query_string": fakeQueryString(),
-                "agg_size": fakeAgg_size(),
+                "agg_size": aggSize,
                 "from_date": fakeFromDate(),
                 "to_date": fakeToDate(),
                 "size": 3,

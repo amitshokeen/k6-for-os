@@ -1,16 +1,53 @@
 import faker from 'https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js';
 
 export function fakeQueryString() {
-    switch(Math.floor(Math.random() * 3) + 1) {
-        case 1:
-            return faker.name.firstName(); 
-        case 2:
-            return '\"' + faker.company.bs() + '\"';
-        case 3:
-            return '\"' + faker.company.catchPhrase() + '\"';
-        case 4: 
-            return ""// random boolean - work in progress
-    }   
+    // Init
+    var random_word;
+    var operators = Array('AND', 'OR', 'NOT');
+    var operator;
+    var query_length = __ENV.QUERY_LENGTH;
+    var query_type = __ENV.QUERY_TYPE;
+    var final_query_string;
+
+    // Generate query string
+    if (query_length > 1) {
+        final_query_string = "(";
+        if (query_type == "Simple") {
+            for (let i = 0; i < query_length; i++) {
+                random_word = faker.random.word({ length: { min: 3 } })
+                while (random_word.indexOf(' ') >= 0) {
+                    random_word = faker.random.word({ length: { min: 3 } })
+                }
+                final_query_string += (" " + random_word);
+            }
+        }
+        else {
+            random_word = faker.random.word({ length: { min: 3 } })
+            while (random_word.indexOf(' ') >= 0) {
+                random_word = faker.random.word({ length: { min: 3 } })
+            }
+            final_query_string += random_word
+            for (let i = 1; i < query_length; i++) {
+                random_word = faker.random.word({ length: { min: 3 } })
+                while (random_word.indexOf(' ') >= 0) {
+                    random_word = faker.random.word({ length: { min: 3 } })
+                }
+                operator = operators[Math.floor(Math.random() * operators.length)];
+                final_query_string += (" " + operator + " " + random_word);
+            }
+        }
+        final_query_string += " )";
+    }
+    else {
+        random_word = faker.random.word({ length: { min: 3 } })
+        while (random_word.indexOf(' ') >= 0) {
+            random_word = faker.random.word({ length: { min: 3 } })
+        }
+        final_query_string = random_word;
+    }
+
+    console.log("Generated query: " + final_query_string)
+    return final_query_string;
 }
 
 export function fakeFromDate() {
@@ -20,11 +57,4 @@ export function fakeFromDate() {
 export function fakeToDate() {
     return "2022-11-30";
 }
-
-export function fakeAgg_size() { //*** customize for benchmarking */
-    const arr1= [10, 20, 50, 100];
-    return arr1[Math.floor(Math.random() * arr1.length)];
-}
-
-
 

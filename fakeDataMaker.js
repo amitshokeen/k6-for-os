@@ -5,9 +5,11 @@ export function fakeQueryString() {
         case 1:
             return faker.name.firstName(); 
         case 2:
-            return faker.company.bs(); //random phrase
+            return '\"' + faker.company.bs() + '\"';
         case 3:
-            return faker.company.catchPhrase(); // to be replaced by random boolean query once I have clarity
+            return '\"' + faker.company.catchPhrase() + '\"';
+        case 4: 
+            return ""// random boolean - work in progress
     }   
 }
 

@@ -2,21 +2,23 @@ import faker from 'https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.
 
 export function fakeQueryString() {
     // Init
-    var random_word;
-    var operators = Array('AND', 'OR', 'NOT');
-    var operator;
-    var query_length = __ENV.QUERY_LENGTH;
-    var query_type = __ENV.QUERY_TYPE;
-    var final_query_string;
+    let random_word = "";
+    let operators = Array('AND', 'OR', 'NOT');
+    let operator;
+    let query_length = __ENV.QUERY_LENGTH;
+    let query_type = __ENV.QUERY_TYPE;
+    let final_query_string = "";
 
     // Generate query string
     if (query_length > 1) {
-        final_query_string = "(";
         if (query_type == "Simple") {
             for (let i = 0; i < query_length; i++) {
                 random_word = faker.random.word({ length: { min: 3 } })
                 while (random_word.indexOf(' ') >= 0) {
                     random_word = faker.random.word({ length: { min: 3 } })
+                }
+                if (random_word.includes("/")) {
+                    random_word = random_word.replace(/\//g, "");
                 }
                 final_query_string += (" " + random_word);
             }
@@ -32,11 +34,13 @@ export function fakeQueryString() {
                 while (random_word.indexOf(' ') >= 0) {
                     random_word = faker.random.word({ length: { min: 3 } })
                 }
+                if (random_word.includes("/")) {
+                    random_word = random_word.replace(/\//g, "");
+                }
                 operator = operators[Math.floor(Math.random() * operators.length)];
                 final_query_string += (" " + operator + " " + random_word);
             }
         }
-        final_query_string += " )";
     }
     else {
         random_word = faker.random.word({ length: { min: 3 } })

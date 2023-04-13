@@ -1,0 +1,20 @@
+{
+  "name": "k6-for-os",
+  "version": "1.0.0",
+  "description": "k6.io based load/performance testing framework for OpenSearch",
+  "main": "configuration.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pulsarplatform/k6-for-os.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pulsarplatform/k6-for-os/issues"
+  },
+  "homepage": "https://github.com/pulsarplatform/k6-for-os#readme"
+}

@@ -7,7 +7,7 @@ import { fakeQueryString, fakeFromDate, fakeToDate } from "./fakeDataMaker.js";
 
 export let options = { 
   //maxRedirects: 4,
-  //  duration: '5s',
+  // duration: '10s',
   //  vus: 5,
   stages: [
     { duration: '10s', target: 10 },
@@ -51,7 +51,8 @@ export default function() {
     }
   });
   let str1 = response.body;
-  console.log('took: '+ Number(str1.slice(2,str1.indexOf(',')).split(':')[1]))
+  // extracting the 'took' value
+  console.log(Number(str1.slice(2,str1.indexOf(',')).split(':')[1]))
   const checkOutput = check (response, {
     'response status 200 ' : (r) => r.status === 200,
   });

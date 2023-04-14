@@ -9,9 +9,9 @@ try {
   // TODO: write this myFinalArr to a separate file
   // and find a way to plot a chart, extract the vlues for avg, min, med, max, p(90) and p(95)
   console.log(myFinalArr); 
-  console.log("Minimum value: " + Math.min(...myFinalArr));
-  console.log("Maximum value: " + Math.max(...myFinalArr));
-  console.log("Average value: " + myFinalArr.reduce((a, b) => a + b, 0) / myFinalArr.length);
+  console.log("Minimum 'took' value: " + Math.min(...myFinalArr));
+  console.log("Maximum 'took' value: " + Math.max(...myFinalArr));
+  console.log("Average 'took' value: " + myFinalArr.reduce((a, b) => a + b, 0) / myFinalArr.length);
   
 } catch (err) {
   console.error(err);

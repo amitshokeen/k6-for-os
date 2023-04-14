@@ -5,7 +5,7 @@ k6.io based load/performance testing framework for OpenSearch
 1. Install k6 from https://k6.io/docs/get-started/installation/
 2. In the terminal, at the root of your project, run this command:<br>
     > sh k6_node_combined.sh <AGG_SIZE> <QUERY_LENGTH> <QUERY_TYPE> <br>
-    > Ex. sh k6_node_combined.sh 10 3 "Simple"<br>
+    > Ex. sh k6_node_combined.sh 10 3 Simple<br>
     ### Explanation of the variables used
     > AGG_SIZE can have any of the values 10, 20, 50, or 100<br>
     > QUERY_LENGTH = Number of words to generate<br>

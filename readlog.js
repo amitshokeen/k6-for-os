@@ -7,7 +7,7 @@ try {
   const reg = new RegExp('^[0-9]+$');
   const myFinalArr = dataArr.filter(e => reg.test(e)).map(x => parseInt(x))
   // TODO: write this myFinalArr to a separate file
-  // and find a way to plot a chart, extract tha vlues for avg, min, med, max, p(90) and p(95)
+  // and find a way to plot a chart, extract the vlues for avg, min, med, max, p(90) and p(95)
   console.log(myFinalArr); 
   console.log("Minimum value: " + Math.min(...myFinalArr));
   console.log("Maximum value: " + Math.max(...myFinalArr));

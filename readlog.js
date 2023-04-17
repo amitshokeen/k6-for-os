@@ -1,4 +1,5 @@
 const fs = require('fs');
+const percentile = require("percentile");
 const fileName = process.argv.slice(2);
 try {
   const data = fs.readFileSync(`./${fileName}`, 'utf8');
@@ -6,18 +7,17 @@ try {
   let dataArr = data.split(" ");
   const reg = new RegExp('^[0-9]+$');
   const myFinalArr = dataArr.filter(e => reg.test(e)).map(x => parseInt(x))
-  const median = arr => {
-    const mid = Math.floor(arr.length / 2),
-      nums = [...arr].sort((a, b) => a - b);
-    return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
-  };
+  
   // TODO: write this myFinalArr to a separate file
   // and find a way to plot a chart, extract the vlues for avg, min, med, max, p(90) and p(95)
-  console.log(myFinalArr); 
-  console.log("Average 'took' value: " + myFinalArr.reduce((a, b) => a + b, 0) / myFinalArr.length);
-  console.log("Minimum 'took' value: " + Math.min(...myFinalArr));
-  console.log("Median 'took' value: " + median(myFinalArr));
-  console.log("Maximum 'took' value: " + Math.max(...myFinalArr));
+  console.log(myFinalArr);
+  let avg = myFinalArr.reduce((a, b) => a + b, 0) / myFinalArr.length;
+  let min = Math.min(...myFinalArr);
+  let med = percentile(50, myFinalArr);
+  let max = Math.max(...myFinalArr);
+  let p90 = percentile(90, myFinalArr);
+  let p95 = percentile(95, myFinalArr);
+  console.log(`avg=${avg}          min=${min}          med=${med}          max=${max}          p(90)=${p90}          p(95)=${p95}`);
 } catch (err) {
   console.error(err);
 }

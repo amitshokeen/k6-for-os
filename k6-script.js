@@ -11,8 +11,8 @@ export let options = {
   //  vus: 5,
   stages: [
     { duration: '10s', target: 10 },
-    { duration: '35s', target: 10 },
-    { duration: '15s', target: 0 }
+    { duration: '40s', target: 10 },
+    { duration: '10s', target: 0 }
   ]
  };
 

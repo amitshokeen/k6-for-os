@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/pulsarplatform/k6-for-os/issues"
   },
-  "homepage": "https://github.com/pulsarplatform/k6-for-os#readme"
+  "homepage": "https://github.com/pulsarplatform/k6-for-os#readme",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "percentile": "^1.6.0"
+  }
 }

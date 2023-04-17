@@ -7,8 +7,8 @@ import { fakeQueryString, fakeFromDate, fakeToDate } from "./fakeDataMaker.js";
 
 export let options = { 
   //maxRedirects: 4,
-  // duration: '10s',
-  //  vus: 5,
+  // duration: '2s',
+  //  vus: 2,
   stages: [
     { duration: '10s', target: 10 },
     { duration: '40s', target: 10 },

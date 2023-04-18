@@ -7,13 +7,13 @@ import { fakeQueryString, fakeFromDate, fakeToDate } from "./fakeDataMaker.js";
 
 export let options = { 
   //maxRedirects: 4,
-  // duration: '2s',
-  //  vus: 2,
-  stages: [
-    { duration: '10s', target: 50 },
-    { duration: '40s', target: 100 },
-    { duration: '10s', target: 0 }
-  ]
+  duration: '2s',
+   vus: 2,
+  // stages: [
+  //   { duration: '10s', target: 50 },
+  //   { duration: '40s', target: 100 },
+  //   { duration: '10s', target: 0 }
+  // ]
  };
 
 const Request = Symbol.for("request");
@@ -52,6 +52,7 @@ export default function() {
   });
   let str1 = response.body;
   // extracting the 'took' value
+  console.log("T" + Date.now());
   console.log(Number(str1.slice(2,str1.indexOf(',')).split(':')[1]))
   const checkOutput = check (response, {
     'response status 200 ' : (r) => r.status === 200,

@@ -7,19 +7,30 @@ try {
   //console.log(data);
   let dataArr = data.split(" ");
   const reg = new RegExp('^[0-9]+$');
-  const finalArr = dataArr.filter(e => reg.test(e)).map(x => parseInt(x))
+  const tookArr = dataArr.filter(e => reg.test(e)).map(x => parseInt(x))
   
-  // TODO: write this finalArr to a separate file
+  // TODO: write this tookArr to a separate file
   // and find a way to plot a chart, extract the vlues for avg, min, med, max, p(90) and p(95)
-  //console.log(finalArr);
-  let avg = chalk.bold.magenta(Math.round((finalArr.reduce((a, b) => a + b, 0) / finalArr.length)*100)/100);
-  let min = chalk.bold.magenta(Math.min(...finalArr));
-  let med = chalk.bold.magenta(percentile(50, finalArr));
-  let max = chalk.bold.magenta(Math.max(...finalArr));
-  let p90 = chalk.bold.magenta(percentile(90, finalArr));
-  let p95 = chalk.bold.magenta(percentile(95, finalArr));
+  //console.log(tookArr);
+  let avg = chalk.bold.magenta(Math.round((tookArr.reduce((a, b) => a + b, 0) / tookArr.length)*100)/100);
+  let min = chalk.bold.magenta(Math.min(...tookArr));
+  let med = chalk.bold.magenta(percentile(50, tookArr));
+  let max = chalk.bold.magenta(Math.max(...tookArr));
+  let p90 = chalk.bold.magenta(percentile(90, tookArr));
+  let p95 = chalk.bold.magenta(percentile(95, tookArr));
   console.log(chalk.bold.magenta("The 'took' values:"))
   console.log(`avg=${avg}          min=${min}          med=${med}          max=${max}          p(90)=${p90}          p(95)=${p95}`);
 } catch (err) {
   console.error(err);
 }
+
+
+/*
+const tookArr = [333, 222, 111];
+const timeArray = [1681714196311, 1681714196321, 1681714196324];
+var result = tookArr.reduce((acc, item, i) => {
+  acc[item] = timeArray[i];
+  return acc;
+}, {}); 
+console.log(result);
+*/

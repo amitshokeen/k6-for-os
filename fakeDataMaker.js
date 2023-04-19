@@ -46,7 +46,8 @@ export function fakeQueryString() {
     }
 
     if (final_query_string.includes("/")) {
-        final_query_string = "\"" + final_query_string + "\"";
+        // final_query_string = "\"" + final_query_string + "\"";
+        final_query_string = final_query_string.replace(/\//g, "\\\/");
     }
 
     console.log("Generated query: " + final_query_string)

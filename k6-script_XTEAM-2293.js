@@ -19,6 +19,7 @@ postman[Symbol.for("initial")]({
 });
 
 export default function() {
+  let aggSize = __ENV.AGG_SIZE;
   let response = postman[Request]({
     headers: {
       'Content-Type': 'application/json'
@@ -32,7 +33,7 @@ export default function() {
       "from_date": "2022-04-12",
       "to_date": "2023-04-12",
       "offset": 0,
-      "limit": 10,
+      "limit": aggSize,
       "fetch_frequency": false,
       "filters": "string"
     })

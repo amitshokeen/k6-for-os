@@ -21,6 +21,19 @@ export function fakeQueryString() {
                 final_query_string += (" " + random_word);
             }
         }
+        else if (query_type == "Wildcard") {
+            random_word = faker.random.word({ length: { min: 3 } })
+            final_query_string = random_word + "*";
+        }
+        else if (query_type == "Broad") {
+            for (let i = 0; i < query_length; i++) {
+                random_word = faker.random.word({ length: { min: 1, max: 3 } })
+                while (random_word.indexOf(' ') >= 0) {
+                    random_word = faker.random.word({ length: { min: 1, max: 3 } })
+                }
+                final_query_string += (" " + random_word);
+            }
+        }
         else {
             random_word = faker.random.word({ length: { min: 3 } })
             while (random_word.indexOf(' ') >= 0) {
@@ -49,7 +62,7 @@ export function fakeQueryString() {
         final_query_string = "\"" + final_query_string + "\"";
     }
 
-    //console.log("Generated query: " + final_query_string)
+    console.log("Generated query: " + final_query_string)
     return final_query_string;
 }
 

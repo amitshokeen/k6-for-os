@@ -1,18 +1,18 @@
 import "./libs/shim/core.js";
 import URI from "./libs/urijs.js";
-import { check } from 'k6';
+import { check, sleep } from 'k6';
 import { configuration } from "./configuration.js";
 import { fakeQueryString, fakeFromDate, fakeToDate } from "./fakeDataMaker.js"; 
 
 
 export let options = { 
   //maxRedirects: 4,
-  // duration: '2s',
-  //  vus: 2,
+  // duration: '30s',
+  //  vus: 50,
   stages: [
     { duration: '5s', target: 50 },
     { duration: '10s', target: 100 },
-    { duration: '60s', target: 500 },
+    { duration: '60s', target: 500 }, // Dan says 300 may be enough!!!
     { duration: '30s', target: 200 },
     { duration: '10s', target: 50 },
     { duration: '5s', target: 0 },
@@ -65,4 +65,5 @@ export default function() {
   if(!checkOutput) {
     console.log(response.body);
   }
+  sleep(Math.floor(Math.random() * 30))
 }

@@ -3,6 +3,7 @@ export function configuration() {
         "base_url": "https://narratives-os.dev.ml-feapps.pulsarinternal.com",
         "query": "/ml_narratives_context_bundles/_search/template",
         "username": "master",
-        "password": "h$Y!*r?e5;VrrC]q"
+        "password": "h$Y!*r?e5;VrrC]q",
+        "access_token": "eyJraWQiOiIwNFJZSHZ6WlpSVnlYNTU2WDVTTlAyY3pCYUFJM0g2NTZIemxJcUhUVnVJPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIwMTZhMjMzYi0xNmRkLTQ0YmItOTU3Yi02Y2Y1OTg0NzI3ZTgiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtd2VzdC0xLmFtYXpvbmF3cy5jb21cL2V1LXdlc3QtMV9Wc3FTZ0h0aXciLCJjbGllbnRfaWQiOiI3dThjamhuMG1lbjRwcjQ1azE2MnI3bjlhdSIsIm9yaWdpbl9qdGkiOiI2Yzc5MTg4MC0yMDM1LTQ3YzItYWMxZi05MTBhYjQ1OGJmZGQiLCJldmVudF9pZCI6Ijk4ZGEwYTcyLTE1YWYtNDlmZS1iYTAyLTk3ZjRkOGU5NjIxNCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2ODE5NTY1OTgsImV4cCI6MTY4MTk2MDE5OCwiaWF0IjoxNjgxOTU2NTk4LCJqdGkiOiI0ZDkyZGRjMS1iMmU1LTQ5MjAtYWI0Yy02MTY4MmJkZTJhZDMiLCJ1c2VybmFtZSI6ImFtaXQifQ.Wl34IQRX1THGwE7TUnq3rt-0CkWMzAftXVHPaxs-Hd3gy14LPfWOpqAeOENKmbRJ6ZJxquQ3XX2kFQanRUjPlreA2fmQu11EfUmEwlLFh6EREbrhjXto6WJ3YMs3bRuo6fPGnN-QCMEtF1x8f3a1WLFB7MfNVr2An3AH-pi_lDeJ-liKiNweTXwIrRQkoIsztDpUL3sdE36BsyEswSMsY_nOvRv9rE3TBQLX3BnKGDmyWddQmUO55PtNBTsMEEMz0C_sXc2CqpvTjljBsRKbEYn3huOxTOHqWo1Q-TWRSBQM246gBo5Oi9M2RlcxGtx2WYlxFRLOAcyJzaEMgT54bA"
     }
 }

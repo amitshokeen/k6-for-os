@@ -62,7 +62,7 @@ export function fakeQueryString() {
         final_query_string = "\"" + final_query_string + "\"";
     }
 
-    //console.log("Generated query: " + final_query_string)
+    console.log("Generated query: " + final_query_string)
     return final_query_string;
 }
 

@@ -9,6 +9,7 @@ k6.io based load/performance testing framework for OpenSearch
     ### Explanation of the variables used
     > AGG_SIZE can have any of the values 10, 20, 50, or 100<br>
     > QUERY_LENGTH = Number of words to generate<br>
-    > QUERY_TYPE = Simple (no boolean operators), Complex (includes boolean operators)
+    > QUERY_TYPE = Simple (no boolean operators), Complex (includes boolean operators)<br>
+    > Wild (include wildcard character), Broad (test for single until three characters)
 3. After the test is complete, you will see the "took" values in the loadtest.log file created at the root of the project.
 4. The other load test relevant data like the response times, number of virtual users, iterations made etc. can be noted directly from the console.

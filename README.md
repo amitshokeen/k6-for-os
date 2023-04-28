@@ -6,7 +6,7 @@ k6.io based load/performance testing framework for OpenSearch
 2. In the terminal, at the root of your project, run this command:<br>
     > sh k6_node_combined.sh <AGG_SIZE> <QUERY_LENGTH> <QUERY_TYPE> <br>
     > Ex. Simple, Complex, Broad: sh k6_node_combined.sh 10 3 Simple<br>
-    > Ex. Wildcard (QUERY_LENGTH MUST BE 1): sh k6_node_combined.sh 10 1 Simple<br>
+    > Ex. Wildcard (QUERY_LENGTH MUST BE 1): sh k6_node_combined.sh 10 1 Wildcard<br>
     ### Explanation of the variables used
     > AGG_SIZE can have any of the values 10, 20, 50, or 100<br>
     > QUERY_LENGTH = Number of words to generate<br>

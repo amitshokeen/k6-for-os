@@ -27,7 +27,7 @@ export function fakeQueryString() {
         else if (query_type == "Broad") {
             for (let i = 0; i < query_length; i++) {
                 random_word = faker.random.word({ length: { min: 1, max: 3 } })
-                while (random_word.indexOf(' ') >= 0) {
+                while (random_word.indexOf(' ') >= 0 || random_word.length > 3) {
                     random_word = faker.random.word({ length: { min: 1, max: 3 } })
                 }
                 final_query_string += (" " + random_word);
@@ -68,18 +68,6 @@ export function fakeQueryString() {
             else {
                 final_query_string = random_word + "*";
             }
-
-            // letter_replace = Math.floor((Math.random() * random_word.length));
-            // random_word = random_word.split("");
-            // console.log(letter_replace)
-            // if (random_word.length > 1) {
-            //     for (var i = 0; i < random_word.length; i++) {
-            //         if (i == letter_replace) {
-            //             random_word[i] = "*";
-            //         }
-            //         final_query_string += random_word[i];
-            //     }
-            // }
         }
         else {
             random_word = faker.random.word({ length: { min: 3 } })

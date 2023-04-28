@@ -6,6 +6,9 @@ export function fakeQueryString() {
     let random_word = "";
     let operators = Array('AND', 'OR', 'NOT');
     let operator;
+    let letter_replace = 0;
+    let wildcard = "";
+    let wildword = "";
     let query_length = __ENV.QUERY_LENGTH;
     let query_type = __ENV.QUERY_TYPE;
     let final_query_string = "";
@@ -20,10 +23,6 @@ export function fakeQueryString() {
                 }
                 final_query_string += (" " + random_word);
             }
-        }
-        else if (query_type == "Wildcard") {
-            random_word = faker.random.word({ length: { min: 3 } })
-            final_query_string = random_word + "*";
         }
         else if (query_type == "Broad") {
             for (let i = 0; i < query_length; i++) {
@@ -51,13 +50,46 @@ export function fakeQueryString() {
         }
     }
     else {
-        random_word = faker.random.word({ length: { min: 3 } })
-        while (random_word.indexOf(' ') >= 0) {
-            random_word = faker.random.word({ length: { min: 3 } })
+        // if (query_type == "Wildcard") {
+        //     wildcard = Array(faker.lorem.word({ length: { min: 1, max: 3 } }), faker.random.word({ length: { min: 3 } }));
+        //     random_word = wildcard[Math.floor(Math.random() * wildcard.length)];
+        //     while (random_word.indexOf(' ') >= 0) {
+        //         wildcard = Array(faker.lorem.word({ length: { min: 1, max: 3 } }), faker.random.word({ length: { min: 3 } }));
+        //         random_word = wildcard[Math.floor(Math.random() * wildcard.length)];
+        //     }
+        //     final_query_string = random_word + "*"; // * in the middle of the word, * after a word, * after a two letter word
+        // }
+        if (query_type = "Wildcard") {
+            wildcard = faker.lorem.word({ length: { min: 1, max: 3 } });
+            while (wildcard.length > 3) {
+                wildcard = faker.lorem.word({ length: { min: 1, max: 3 } });
+            }
+            wildword = faker.random.word({ length: { min: 3 } });
+            while (wildword.indexOf(' ') >= 0) {
+                wildword = faker.random.word({ length: { min: 3 } });
+            }
+            random_word = Array(wildcard, wildword);
+            random_word = random_word[Math.floor(Math.random() * random_word.length)];
+            letter_replace = Math.floor((Math.random() * random_word.length));
+            random_word = random_word.split("");
+            console.log(letter_replace)
+            if (random_word.length > 1) {
+                for (var i = 0; i < random_word.length; i++) {
+                    if (i == letter_replace) {
+                        random_word[i] = "*";
+                    }
+                    final_query_string += random_word[i];
+                }
+            }
         }
-        final_query_string = random_word;
+        else {
+            random_word = faker.random.word({ length: { min: 3 } })
+            while (random_word.indexOf(' ') >= 0) {
+                random_word = faker.random.word({ length: { min: 3 } })
+            }
+            final_query_string = random_word;
+        }
     }
-
     console.log("Generated query: " + final_query_string)
     return final_query_string;
 }

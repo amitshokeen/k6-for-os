@@ -2,7 +2,7 @@ import "./libs/shim/core.js";
 import URI from "./libs/urijs.js";
 import { check, sleep } from 'k6';
 import { configuration } from "./configuration.js";
-import { fakeQueryString, fakeFromDate, fakeToDate } from "./fakeDataMaker.js"; 
+import { fakeQueryString, fakeFromDate, fakeToDate } from "./fakeDataMaker_XTEAM-2375.js"; 
 
 
 export let options = { 

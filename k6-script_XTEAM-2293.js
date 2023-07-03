@@ -11,14 +11,34 @@ export let options = {
   //   { duration: '5s', target: 3},
   //   { duration: '5s', target: 6},
   //   { duration: '5s', target: 10},
-  //   { duration: '5s', target: 0},
+  //   { duration: '25s', target: 10},
+  //   { duration: '5s', target: 5},
+  //   { duration: '5s', target: 0}
+  // ]
+  // stages: [
+  //   { duration: '5s', target: 10},
+  //   { duration: '5s', target: 30},
+  //   { duration: '5s', target: 50},
+  //   { duration: '5s', target: 50},
+  //   { duration: '15s', target: 50},
+  //   { duration: '5s', target: 20},
+  //   { duration: '5s', target: 0}
+  // ]
+  // stages: [
+  //   { duration: '5s', target: 30},
+  //   { duration: '5s', target: 60},
+  //   { duration: '30s', target: 100},
+  //   { duration: '30s', target: 100},
+  //   { duration: '5s', target: 50},
+  //   { duration: '5s', target: 20},
+  //   { duration: '5s', target: 0}
   // ]
   stages: [
     { duration: '5s', target: 50 },
     { duration: '10s', target: 100 },
-    { duration: '60s', target: 300 }, // Dan says 300 may be enough!!!
-    { duration: '30s', target: 300 },
-    { duration: '10s', target: 50 },
+    { duration: '60s', target: 1000 }, // Dan says 300 may be enough!!!
+    { duration: '30s', target: 1000 },
+    { duration: '10s', target: 500 },
     { duration: '5s', target: 0 },
   ]
  };
